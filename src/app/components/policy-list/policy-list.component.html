@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Policy List</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Policy</th>
+        <th>Condition value</th>
+        <th class="action-column">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let policy of policies">
+        <td class="bold-column">{{ policy.name }}</td>
+        <td>{{ policy.condition.value }}</td>
+        <td class="action-column">
+          <div class=" action-buttons">
+            <button class="button" [routerLink]="['/policies/edit', policy.id]">Edit</button>
+            <button class="button-delete" (click)="deletePolicy(policy.id)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

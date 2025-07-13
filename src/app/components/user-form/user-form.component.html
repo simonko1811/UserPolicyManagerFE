@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Edit User' : 'Add User' }}</h2>
+
+  <form (ngSubmit)="onSubmit()" class="two-column-form">
+    <div class="form-row">
+      <label>First Name:</label>
+      <input type="text" [(ngModel)]="user.firstName" name="firstName" required>
+    </div>
+
+    <div class="form-row">
+      <label>Last Name:</label>
+      <input type="text" [(ngModel)]="user.lastName" name="lastName" required>
+    </div>
+
+    <div class="form-row">
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="user.emailAddress" name="email" required>
+    </div>
+
+    <div class="form-row">
+      <label>Organization Units (separated by comma):</label>
+      <input type="text" [(ngModel)]="unitsInput" name="units">
+    </div>
+
+    <div class="form-row">
+      <label>Birth Date:</label>
+      <input type="date" [(ngModel)]="user.birthDate" name="birthDate">
+    </div>
+
+    <div class="form-row">
+      <label>Registered On:</label>
+      <input type="date" [(ngModel)]="user.registeredOn" name="registeredOn">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="button">{{ isEditMode ? 'Update' : 'Add' }} User</button>
+    </div>
+
+    <div *ngIf="message" class="error-message">{{ message }}</div>
+  </form>
+</div>

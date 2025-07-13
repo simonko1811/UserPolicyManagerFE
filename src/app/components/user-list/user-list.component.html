@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>User List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Unit</th>
+        <th>Policies</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td class="bold-column">{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.emailAddress }}</td>
+        <td>{{ user.organizationUnit.join(', ') }}</td>
+        <td>
+          <span *ngFor="let p of user.policyObjects" class="policy-badge">
+            {{ p.name }}
+          </span>
+        </td>
+        <td class="action-column">
+          <div class="action-buttons">
+            <button class="button" [routerLink]="['/users/edit', user.name]">Edit</button>          
+            <button class="button-delete" (click)="deleteUser(user.name)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

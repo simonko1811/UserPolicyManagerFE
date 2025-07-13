@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>{{ isEditMode ? 'Edit Policy' : 'Add Policy' }}</h2>
+
+  <form (ngSubmit)="onSubmit()" class="two-column-form">
+    <div class="form-row">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="policy.name" name="name" required>
+    </div>
+
+    <div class="form-row">
+      <label>Condition Rule:</label>
+      <input type="text" [(ngModel)]="policy.condition.rule" name="rule" required>
+    </div>
+
+    <div class="form-row">
+      <label>Condition Value:</label>
+      <input type="text" [(ngModel)]="policy.condition.value" name="value" required>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="button">{{ isEditMode ? 'Update' : 'Add' }} Policy</button>
+    </div>
+
+    <div *ngIf="message" class="error-message">{{ message }}</div>
+  </form>
+</div>
