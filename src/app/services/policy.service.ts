@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class PolicyService {
-  private apiUrl = 'http://localhost:8080/api/policies';
+  //private apiUrl = 'http://localhost:8080/api/policies'; 
+  private apiUrl = 'api/policies'; 
 
   constructor(private http: HttpClient) {}
 
